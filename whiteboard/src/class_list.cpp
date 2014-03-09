@@ -28,8 +28,10 @@ class List {
 int main(int argc, char* argv[]){
 	List list;
     Node* newNode = new Node();
-    newNode->SetData(data);
+    newNode->SetData(5);
     newNode->SetNext(NULL);
+
+    list.Print();
 
 
 	return 0;
