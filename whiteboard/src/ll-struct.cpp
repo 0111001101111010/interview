@@ -12,14 +12,23 @@ struct list{
 };
 
 void Print(Node* head);
+void Add(Node* head, int info);
+
 
 int main(int argc, char* argv[]){
 
 Node * tmp=NULL, *head=NULL;
-//list List;
+list List;
 //List->head = current;
 // Create a new node
-int data =1;
+Add(List.head,2);
+Print(List.head);
+
+return 0;
+}
+void Add(Node* head, int info){
+int data = info;
+Node * tmp=NULL;
 // Create a new node
 Node* newNode = new Node();
 newNode->data=data;
@@ -39,10 +48,6 @@ if ( tmp != NULL ) {
     // First node in the list
     head = newNode;
     }
-
-Print(head);
-
-return 0;
 }
 
 void Print(Node * head) {
