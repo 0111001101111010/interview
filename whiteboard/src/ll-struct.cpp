@@ -50,7 +50,7 @@ if ( tmp != NULL ) {
     }
 }
 
-void Print(Node * head) {
+Node* Print(Node * head) {
 
     // Temp pointer
     Node *tmp = head;
