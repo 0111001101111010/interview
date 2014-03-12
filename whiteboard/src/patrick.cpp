@@ -12,10 +12,11 @@ int main(int argc, char* argv[]){
 Node* head=NULL;
 Node* temp=NULL;
 
-	temp = new Node;
+
 //create list 0-2
 for (int i = 0; i < 3; i++){
 	//make it a node box
+	temp = new Node;
 	temp ->data = i;
 	temp->next= head;
 	head=temp;
