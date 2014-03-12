@@ -7,6 +7,8 @@ struct Node{
 	Node* next;
 };
 
+Node* print(Node* temp);
+
 int main(int argc, char* argv[]){
 
 Node* head=NULL;
@@ -50,11 +52,16 @@ else
 	cout << "data was found\n";
 
 //printer
-Node* current = head;
+print(head);
+
+return 0;
+};
+Node* print(Node* current){
+
 while(current!=NULL){
 	cout << current->data;
 	current=current->next;
 }
 
-return 0;
+
 };
