@@ -38,9 +38,16 @@ for (int i = 3; i < 6; i++){
 	current->next=temp;
 }
 
-//removing a value
-Node* current = head;
-
+//searching for a value
+Node* current2 = head;
+int search = 7;
+while(current2!=NULL&& current2->data!=search){
+	current2=current2->next;
+}
+if (current2==NULL)
+	cout << "data not found!\n";
+else
+	cout << "data was found\n";
 
 //printer
 Node* current = head;
