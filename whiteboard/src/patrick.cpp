@@ -3,11 +3,11 @@
 using namespace std;
 
 struct Node{
-	int data;
+	int data=NULL;
 	Node* next;
 };
 struct List{
-	Node* head;
+	Node* head=NULL;
 };
 
 Node* print(Node* temp);
