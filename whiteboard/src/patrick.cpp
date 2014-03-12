@@ -8,6 +8,7 @@ struct Node{
 };
 
 Node* print(Node* temp);
+Node* search(Node* current, int search);
 
 int main(int argc, char* argv[]){
 
@@ -42,26 +43,31 @@ for (int i = 3; i < 6; i++){
 
 //searching for a value
 Node* current2 = head;
-int search = 7;
-while(current2!=NULL&& current2->data!=search){
-	current2=current2->next;
-}
-if (current2==NULL)
-	cout << "data not found!\n";
-else
-	cout << "data was found\n";
 
+search(head,5);
+search(head,7);
 //printer
 print(head);
 
 return 0;
 };
-Node* print(Node* current){
 
-while(current!=NULL){
-	cout << current->data;
+
+Node* print(Node* current){
+	while(current!=NULL){
+		cout << current->data;
+		current=current->next;
+	}
+};
+
+Node* search(Node* current, int search){
+
+while(current!=NULL&& current->data!=search){
 	current=current->next;
 }
-
+	if (current==NULL)
+		cout << "data not found!\n";
+	else
+		cout << "data was found\n";
 
 };
