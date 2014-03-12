@@ -6,6 +6,9 @@ struct Node{
 	int data;
 	Node* next;
 };
+struct List{
+	Node* head;
+};
 
 Node* print(Node* temp);
 Node* search(Node* current, int search);
@@ -14,7 +17,7 @@ int main(int argc, char* argv[]){
 
 Node* head=NULL;
 Node* temp=NULL;
-
+List* list= NULL;
 
 //create list 0-2
 //adding to the head
