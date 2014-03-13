@@ -6,18 +6,17 @@ struct Node{
 	int data=NULL;
 	Node* next;
 };
-struct List{
-	Node* head=NULL;
-};
 
+Node* prepend(Node** temp, int value);
+Node* append(Node* temp, int value);
 Node* print(Node* temp);
-Node* search(Node* current, int search);
+Node* search(Node* current, int value);
 
 int main(int argc, char* argv[]){
 
 Node* head=NULL;
 Node* temp=NULL;
-List* list= NULL;
+Node* list= NULL;
 
 //create list 0-2
 //adding to the head
@@ -46,7 +45,8 @@ for (int i = 3; i < 6; i++){
 
 //searching for a value
 Node* current2 = head;
-
+prepend(&head,9);
+prepend(&head,4);
 search(head,5);
 search(head,7);
 //printer
@@ -62,15 +62,27 @@ Node* print(Node* current){
 		current=current->next;
 	}
 };
-
-Node* search(Node* current, int search){
-
-while(current!=NULL&& current->data!=search){
+//prepend to  link list
+Node* prepend(Node**  head, int value){
+Node* current= *head;
+while(current!=NULL&& current->data!=value){
 	current=current->next;
 }
+	Node* temp=new Node;
+	temp ->data = value;
+	//add to head
+	temp->next= *head;
+	*head=temp;
+
+};
+Node* search(Node* current, int search){
+
+	while(current!=NULL&& current->data!=search){
+		current=current->next;
+	}
 	if (current==NULL)
-		cout << "data not found!\n";
+		cout << "Data Not Found!\n";
 	else
-		cout << "data was found\n";
+		cout << "Data Was Found\n";
 
 };
