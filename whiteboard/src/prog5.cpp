@@ -1,6 +1,6 @@
 #include <iostream>
 #include <algorithm>
-
+#include <cassert>
 using namespace std;
 
 int main(int argc, char* argv[]){
@@ -42,5 +42,6 @@ int main(int argc, char* argv[]){
 	else
 		cout <<"nope\n";
 
+assert(1==2);
 return 0;
 }
