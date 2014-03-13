@@ -11,7 +11,7 @@ int main(int argc, char* argv[]){
 	ip = &i;
 	cout << ip << "\n";
 	printf("%d\n", *ip);
-	i=4;
+	i=5;
 	iq=ip;
 	cout << ip << "\n";
 	printf("%d\n", *ip);
@@ -20,10 +20,27 @@ int main(int argc, char* argv[]){
 	cout << ip << "\n";
 	printf("%d\n", *ip);
 	j=5;
+	i=5;
 	ip=&j;
 	cout << ip << "\n";
 	printf("%d\n", *ip);
 
 //comparisons
+	//compare pointers
+	if(ip==iq)
+		cout <<"Same Pointer\n";
+	else
+		cout <<"nope\n";
+	//compare addresses
+	if(&ip==&iq)
+		cout <<"Same Address?\n";
+	else
+		cout <<"nope\n";
+	//compare values
+	if(*ip==*iq)
+		cout <<"Same Value?\n";
+	else
+		cout <<"nope\n";
+
 return 0;
 }
