@@ -8,7 +8,7 @@ struct Node{
 };
 
 Node* prepend(Node** temp, int value);
-Node* append(Node* temp, int value);
+Node* append(Node** temp, int value);
 Node* print(Node* temp);
 Node* search(Node* current, int value);
 
@@ -50,6 +50,7 @@ prepend(&head,4);
 search(head,5);
 search(head,7);
 //printer
+append(&head,0);
 print(head);
 
 return 0;
@@ -64,10 +65,6 @@ Node* print(Node* current){
 };
 //prepend to  link list
 Node* prepend(Node**  head, int value){
-Node* current= *head;
-while(current!=NULL&& current->data!=value){
-	current=current->next;
-}
 	Node* temp=new Node;
 	temp ->data = value;
 	//add to head
@@ -75,6 +72,20 @@ while(current!=NULL&& current->data!=value){
 	*head=temp;
 
 };
+//append to head
+Node* append(Node**  head, int value){
+Node* current= *head;
+while(current->next !=NULL){
+	current=current->next;
+}
+	Node* temp=new Node;
+	temp ->data = value;
+	//add to head
+	temp->next= NULL;
+	current->next=temp;
+
+};
+//search through list for instance
 Node* search(Node* current, int search){
 
 	while(current!=NULL&& current->data!=search){
