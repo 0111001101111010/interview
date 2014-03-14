@@ -7,7 +7,7 @@ struct A {
 };
 
 int main() {
-  A a[2];
+  A a[3];
   for (auto x : a) {
     x.f();
   }
