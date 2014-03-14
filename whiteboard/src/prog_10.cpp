@@ -12,14 +12,16 @@ class B : public A {
 public:
   virtual void f() { std::cout << "B\n"; }
   virtual void d() { std::cout << "D2\n"; }
-  void h() { std::cout << "B\n"; }
+  void h() { std::cout << "Bh\n"; }
+
 };
 class C : public B {
 public:
   virtual void f() { std::cout << "B1\n"; }
   virtual void d() { std::cout << "D3\n"; }
-  void h() { std::cout << "B\n"; }
+  void h() { std::cout << "Ch\n"; }
 };
+
 void print(A &a) { a.f(); a.h(); }
 void printVirtual(B &b) { b.f();b.h(); }
 void printInherited(B &b) { b.c();b.d(); }
@@ -38,6 +40,7 @@ int main() {
   printf("*****\n");
   printInherited(b);
   printf("*****\n");
+  printInherited(c);
 }
 
 //Correct!
