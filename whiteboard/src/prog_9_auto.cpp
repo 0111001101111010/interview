@@ -7,10 +7,10 @@ struct A {
 };
 
 int main() {
-  A a[3];
-  for (auto x : a) {
-    x.f();
-  }
+//  A a[3];
+//  for (auto x : a) {
+//    x.f();
+//  }
 
 std::cout <<"\n";
 
