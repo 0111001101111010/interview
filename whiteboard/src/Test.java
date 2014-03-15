@@ -13,9 +13,9 @@ class Test{
 	}
 	public int print(){
 
-	for (int i = 0; i < mlsText.size(); i++)
-        {
+	for (int i = 0; i < mlsText.size(); i++){
         System.out.print(mlsText[i]);
-        }
+       }
+    return 0;1
 	}
 }
