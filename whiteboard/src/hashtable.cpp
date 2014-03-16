@@ -16,7 +16,7 @@ public:
 };
 
 class hasher {
-		data dt[51]; //the table to hold hashed data structs
+		data dt[53]; //the table to hold hashed data structs
 		int numel; //number of elements in table, to check if it's full
 public:
 		hasher();
@@ -31,18 +31,18 @@ public:
 It's better that we use a prime number for our length, thats why I used 11
 and the bigger possible, it's better because we reduce our collisions*/
 int hasher::hash(int &id) {
-		return (id%51);
+		return (id%53);
 }
-/*in case of ay collision(a hashed value which is already occupied before)
+/*in case of any collision(a hashed value which is already occupied before)
 we use rehash function instead of hash*/
 int hasher::rehash(int &id) {
-		return ((id+1)%51);
+		return ((id+1)%53);
 }
 
 hasher::hasher() {
 		//create an array of data structure
 		int i;
-		for(i=0;i<=50;i++) {
+		for(i=0;i<=52;i++) {
 				dt[i].id = -1; //set all ids to -1 to show they're empty
 				dt[i].data = 0; //set all data values to 0, which is default
 		}
@@ -50,10 +50,10 @@ hasher::hasher() {
 }
 
 int hasher::add(data &d) {
-		if(numel < 51) {
+		if(numel < 53) {
 				//table has empty places...
 				int hashed = hash(d.id);
-				if(hashed >= 0 && hashed <= 50 && dt[hashed].id == -1) {
+				if(hashed >= 0 && hashed <= 52 && dt[hashed].id == -1) {
 						//slot is empty, assign new data
 						dt[hashed].id = d.id;
 						dt[hashed].data = d.data;
@@ -62,13 +62,13 @@ int hasher::add(data &d) {
 						//we need to rehash the id
 			int i=0;
 			//try every place in table to find an empty place
-			while(i<=50) {
+			while(i<=52) {
 							hashed = rehash(hashed);
 							if(dt[hashed].id == -1) {
 									dt[hashed].id = d.id;
 									dt[hashed].data = d.data;
 									return 0;
-							} else if(i==50) {
+							} else if(i==52) {
 									//we couldn't find the empty place
 									return -1; //terminate function with error
 							}
@@ -91,13 +91,13 @@ int hasher::remove(data &d) {
 		} else {
 				//we need a rehash to find the one
 		int i=0;
-		while(i<=50) {
+		while(i<=52) {
 					hashed = rehash(hashed);
 					if(dt[hashed].id == d.id) {
 							dt[hashed].id = -1; //set the id to -1 because it is going to be empty
 							numel -= 1; //decrease 1 from number of elements
 							return 0; //success
-					} else if(i==50) {
+					} else if(i==52) {
 							return -1; //terminate function
 			}
 			i++; //update the value of i
@@ -107,7 +107,7 @@ int hasher::remove(data &d) {
 
 void hasher::output() {
 		int i;
-		for(i=0;i<51;i++) {
+		for(i=0;i<53;i++) {
 				cout<<i<<" ->  "<<dt[i].id<<"	 "<<dt[i].data<<endl;
 		}
 }
@@ -122,9 +122,10 @@ int main() {
 				d.id=id;
 				ret = h1.add(d); //add this record to table
 				id += (id/5); //update the id, I wanted to show how different ids are put in table, look at output
-		}
+		}/*
 		d.id = 271861; //set to one of the ids we added to table in above loop
 		h1.remove(d); //remove that record from table
-		h1.output(); //see the output, notice there is one empty record, in index number 33, that was the record with id of 271861
+		h1.output(); //see the output, notice there is one empty record, in index number 33, that was the record with id of 271861*/
+		h1.output();
 		return 0;
 }
