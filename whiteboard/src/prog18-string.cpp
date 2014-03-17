@@ -7,9 +7,10 @@ using std::cout;
 int main(){
 
 //start
-std::string word = "fish";
+std::string word = "boats";
 cout <<word <<"\n";
-/*char temp;
+char temp;
+/*
 temp=word[0];
 word[0]=word[(word.size()-1)];
 word[word.size()-1]=temp;
