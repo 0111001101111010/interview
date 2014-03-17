@@ -1,24 +1,20 @@
-//rever a string in place
+//url space encode
 
 #include <iostream>
 #include <algorithm>
+#include <string>
 
 using std::cout;
+
 int main(){
 	//start
-	std::string word = "boats";
+	std::string word = "boat show";
 	cout << word << "\n";
-	char temp;
+	// std::cout << static_cast<int>(ch) << "\n" ;
 	//reverse in place!
-	for (int i=0; i < (word.size()/2);i++){
-	 	temp = word[i];
-		word[i]=word[(word.size()-1-i)];
-		word[word.size()-1-i]=temp;
-	 }
-	cout << word << "\n";
-
+	int pos =0;
+    //std::replace_if(word.begin(), word.end(), " ", "%23");
 	//algorithm reverse reverse
-	std::reverse(word.begin(),word.end());
 	cout <<word << "\n";
 	return 0;
 };
