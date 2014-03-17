@@ -1,3 +1,5 @@
+//rever a string in place
+
 #include <iostream>
 #include <algorithm>
 
