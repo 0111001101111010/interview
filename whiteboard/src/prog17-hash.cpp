@@ -2,10 +2,12 @@
 
 using std::cout;
 
+//open addressing
 struct Node{
 Node *next;
 int value;
 };
+
 const int hash_num = 11;
 //hash a prime number, 53 chosen
 int hash(int& num){
