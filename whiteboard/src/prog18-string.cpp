@@ -7,7 +7,7 @@ int main(){
 //start
 std::string word = "fish";
 cout <<word <<"\n";
-char temp;
+/*char temp;
 temp=word[0];
 word[0]=word[(word.size()-1)];
 word[word.size()-1]=temp;
@@ -17,12 +17,15 @@ cout <<word <<"\n";
 temp=word[1];
 word[1]=word[(word.size()-1-1)];
 word[word.size()-1-1]=temp;
-cout <<word <<"\n";
+cout <<word <<"\n";*/
 
-/*for (int i=0; 0 < (word.size()/2);i++){
+//reverse in place!
+for (int i=0; i < (word.size()/2);i++){
  	temp = word[i];
- 	word[i]=word[(word.size()-i-1)];
- 	word[word.size()-1-i] = temp;
- }*/
+	word[i]=word[(word.size()-1-i)];
+	word[word.size()-1-i]=temp;
+ //cout <<i;
+ }
+cout << word;
 return 0;
 };
