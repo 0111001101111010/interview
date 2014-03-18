@@ -11,7 +11,7 @@ public:
 	Node* top = NULL;
 	void pop(){
 	  if(top !=NULL){
-	  	 std::cout<< "\npopping " << top->value << "\n";
+	  	 std::cout<< "popping " << top->value << "\n";
 	  	 top=top->next;
 	  }
 	  else
@@ -19,11 +19,12 @@ public:
 	}
     int push(int num){
 	  if(top !=NULL){
-	  	 std::cout<< "\npushing" << top->value << "\n";
-	  	 Node temp;
-	  	 temp.value = num;
-	  	 temp.next  = top;
-	  	 top = &temp;
+	  	 std::cout<< "pushing " << top->value << "\n";
+
+	  	 Node* temp = new Node();
+	  	 temp->value = num;
+	  	 temp->next  = top;
+	  	 top = temp;
 	  }
 	  else
 	    std::cout << "your stack is empty\n";
