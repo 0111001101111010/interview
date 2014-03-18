@@ -2,7 +2,9 @@
 // MIT (C) 2014
 
 #include <iostream>
-
+#define SHIP_CAPTAIN "Leela Turanga"
+#define SHIP_CAPTAIN_AGE 30
+#define SHIP_CAPTAIN_ID  10100
 class Person
 {
 std::string Name;
@@ -53,5 +55,11 @@ int main(int argc, char const *argv[])
 	pizzaboy.setAge(31);
 	pizzaboy.setID(110000);
 	pizzaboy.print();
+
+	Employee captain;
+	captain.setName(SHIP_CAPTAIN);
+	captain.setAge(SHIP_CAPTAIN_AGE);
+	captain.setID(SHIP_CAPTAIN_ID);
+	captain.print();
 	return 0;
 }
