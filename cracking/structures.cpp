@@ -19,43 +19,23 @@ int main(int argc, char const *argv[])
 
 //heap
 	//copy paste http://en.cppreference.com/w/cpp/algorithm/make_heap
-	std::vector<int> v { 5,10,40,200,50,6,1};
-	/*
-					5
-				   /  \
-				  10   40
-				  /\   /\
-				200 50 6 1
-				//swap one
-				 200
-				 / \
-				10  40
-				/\   /\
-			   5  50 6 1
+	std::vector<int> v { 3, 1, 4, 1, 5, 9 };
 
-			  	 200
-				 / \
-				50  40
-				/\   /\
-			   5  10 6 1
-			   heap = {200, 50, 40, 5, 10, 6, 1}
-	*/
-	//lets predict the heap structure
-
-    std::cout << "initially, v: ";
+    std::cout << "initially, v:		 ";
     for (auto i : v) std::cout << i << ' ';
     std::cout << '\n';
 
+	//copies heap
     std::make_heap(v.begin(), v.end());
 
     std::cout << "after make_heap, v: ";
     for (auto i : v) std::cout << i << ' ';
     std::cout << '\n';
 
-    std::pop_heap(v.begin(), v.end());
-    auto largest = v.back();
-    v.pop_back();
-    std::cout << "largest element: " << largest << '\n';
+    // std::pop_heap(v.begin(), v.end());
+    // auto largest = v.back();
+    // v.pop_back();
+    // std::cout << "largest element: " << largest << '\n';
 
 //stack LIFO
 	std::stack<int> a;
