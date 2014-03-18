@@ -1,6 +1,6 @@
 // Stanley Zheng
 // MIT (C) 2014
-
+// Futurama Planet Express Employee System
 #include <iostream>
 #define SHIP_CAPTAIN "Leela Turanga"
 #define SHIP_CAPTAIN_AGE 30

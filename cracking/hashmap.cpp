@@ -2,7 +2,7 @@
 * stanley zheng
 */
 
-#include <cstdlib>
+//#include <cstdlib>
 #include <iostream>
 #include <stack>
 #include <queue>
@@ -73,6 +73,7 @@ int main(int argc, char const *argv[])
 	std::cout << b.front();
 	std::cout<<"\n";
 //hashmap
+	//int std::map<key, value> map;
 // 	std::map<int> c;
 // for (int i=0; i<5; i++)
 // 		b.push(i);
