@@ -1,3 +1,10 @@
+
+// Author: Stanley Zheng
+// Stack Queue Implementation
+// GNU LICENSE
+// Date 2/13/14
+
+
 #include <iostream>
 
 struct Node{
