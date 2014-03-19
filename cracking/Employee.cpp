@@ -9,6 +9,7 @@
 
 class Person
 {
+//#todo shift this backdown
 public:
 std::string Name;
 int Age;
@@ -58,7 +59,7 @@ public:
 	friend bool operator< (const Employee& lhs, const Employee& rhs){
 	 /* do actual comparison */
 		if (lhs.IQ<rhs.IQ){
-			std:: cout << lhs.Name <<" is not as smart\n";
+			std:: cout << lhs.getName <<" is not as smart\n";
 			return true;
 		}
 		else{
@@ -113,3 +114,6 @@ int main(int argc, char const *argv[])
 
 	return 0;
 }
+/*
+/Users/stanzheng/code/interview/cracking/Employee.cpp:61:18: error: member function 'getName' not viable: 'this' argument has type 'const Employee', but function is not marked const std:: cout << lhs.getName() <<" is not as smart\n";
+*/
