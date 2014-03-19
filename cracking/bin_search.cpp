@@ -11,5 +11,8 @@ int main(int argc, char const *argv[])
 	std::sort(b.begin(), b.end());
 	for (auto x: b)
 		std::cout<< x;
+	std::cout << std::endl;
+	for (int i=0;i<5;++i)
+		std::cout<<i;
 	return 0;
 }
