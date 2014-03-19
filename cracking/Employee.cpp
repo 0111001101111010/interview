@@ -59,7 +59,7 @@ public:
 	friend bool operator< (const Employee& lhs, const Employee& rhs){
 	 /* do actual comparison */
 		if (lhs.IQ<rhs.IQ){
-			std:: cout << lhs.Name <<" is not as smart as " << rhs.Name << std::endl;
+			std:: cout << lhs.Name <<" is less smart than " << rhs.Name << std::endl;
 			return true;
 		}
 		else{
@@ -110,7 +110,9 @@ int main(int argc, char const *argv[])
 	//instantiation
 	Employee robot = Employee("Bender Rodrugiez", 2, 101010, 101);
 	robot.print();
-	captain < robot;
+	//is the captain smarter than the robot?
+	// why is left evaluated as right
+	captain > robot;
 
 	return 0;
 }
