@@ -59,11 +59,11 @@ public:
 	friend bool operator< (const Employee& lhs, const Employee& rhs){
 	 /* do actual comparison */
 		if (lhs.IQ<rhs.IQ){
-			std:: cout << lhs.Name <<" is not as smart\n";
+			std:: cout << lhs.Name <<" is not as smart as " << rhs.Name << std::endl;
 			return true;
 		}
 		else{
-			std:: cout << lhs.Name <<" is smarter\n";
+			std:: cout << lhs.Name <<" is smarter than "<< rhs.Name << std::endl;;
 			return false;
 		}
 	}
