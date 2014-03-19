@@ -36,7 +36,7 @@ class Employee: public Person
 	double ID;
 	double IQ;
 public:
-	const Employee(){};
+	Employee(){};
 	Employee(std::string aName, int aAge, double aID,double aIQ){
 		setName(aName);
 		setAge(aAge);
@@ -44,20 +44,32 @@ public:
 		setIQ(aIQ);
 	};
 	~Employee(){};
-	double getID(){
+	//operators
+	friend bool operator==(const Employee& lhs, const Employee& rhs){ /* do actual comparison */
+
+	}
+	friend bool operator!=(const Employee& lhs, const Employee& rhs){return !operator==(lhs,rhs);}
+	friend bool operator< (const Employee& lhs, const Employee& rhs){
+	 /* do actual comparison */
+	}
+	friend bool operator> (const Employee& lhs, const Employee& rhs){return  operator< (rhs,lhs);}
+	friend bool operator<=(const Employee& lhs, const Employee& rhs){return !operator> (lhs,rhs);}
+	friend bool operator>=(const Employee& lhs, const Employee& rhs){return !operator< (lhs,rhs);}
+	//comparisons
+	const double getID(){
 		return ID;
 	}
 	void setID(double info){
 		ID = info;
 	}
-	double getRank(){
+	const double getIQ(){
 		return IQ;
 	}
 	void setIQ(double info){
 		IQ = info;
 	}
 	void print(){
-	std::cout << "Employee " << this->getID()  << ", " << this->getName() << ", Age " << this->getAge() << ", Their IQ " << this->getRank() << "\n";
+	std::cout << "Employee " << this->getID()  << ", " << this->getName() << ", Age " << this->getAge() << ", Their IQ " << this->getIQ() << "\n";
 	};
 
 };
@@ -83,5 +95,7 @@ int main(int argc, char const *argv[])
 	//instantiation
 	Employee robot = Employee("Bender Rodrugiez", 2, 101010, 101);
 	robot.print();
+
+
 	return 0;
 }
