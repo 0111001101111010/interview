@@ -21,7 +21,7 @@ int main(int argc, char const *argv[])
 	//copy paste http://en.cppreference.com/w/cpp/algorithm/make_heap
 	std::vector<int> v { 3, 1, 4, 1, 5, 9 };
 
-    std::cout << "initially, v:		 ";
+    std::cout << "initially, v: 		 ";
     for (auto i : v) std::cout << i << ' ';
     std::cout << '\n';
 
