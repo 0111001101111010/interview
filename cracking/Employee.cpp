@@ -9,10 +9,9 @@
 
 class Person
 {
+public:
 std::string Name;
 int Age;
-
-public:
 	Person(){};
 	~Person(){};
 	int getAge(){
@@ -46,11 +45,26 @@ public:
 	~Employee(){};
 	//operators
 	friend bool operator==(const Employee& lhs, const Employee& rhs){ /* do actual comparison */
-
+		if (lhs.IQ==rhs.IQ){
+			//std:: cout << lhs.Name <<" is smarter\n";
+			return true;
+		}
+		else{
+			//std:: cout << rhs.Name <<" is not as smart\n";
+			return false;
+		}
 	}
 	friend bool operator!=(const Employee& lhs, const Employee& rhs){return !operator==(lhs,rhs);}
 	friend bool operator< (const Employee& lhs, const Employee& rhs){
 	 /* do actual comparison */
+		if (lhs.IQ<rhs.IQ){
+			std:: cout << lhs.Name <<" is not as smart\n";
+			return true;
+		}
+		else{
+			std:: cout << lhs.Name <<" is smarter\n";
+			return false;
+		}
 	}
 	friend bool operator> (const Employee& lhs, const Employee& rhs){return  operator< (rhs,lhs);}
 	friend bool operator<=(const Employee& lhs, const Employee& rhs){return !operator> (lhs,rhs);}
@@ -95,7 +109,7 @@ int main(int argc, char const *argv[])
 	//instantiation
 	Employee robot = Employee("Bender Rodrugiez", 2, 101010, 101);
 	robot.print();
-
+	captain < robot;
 
 	return 0;
 }
