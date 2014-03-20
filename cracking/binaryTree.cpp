@@ -26,6 +26,53 @@ void InsertNode(nodeT * & t, string key) {
 		 InsertNode(t->right, key);
 		 }
 }
+int cmpFn(string a, string b){
+	if (a==b)
+		return 0;
+	else if (a<b)
+		return 1;
+	else
+		return -1;
+}
+
+//remove
+void removeTargetNode(nodeT * & t) {
+ nodeT *toDelete = t;
+ if (t->left == NULL) {
+ t = t->right;
+ } else if (t->right == NULL) {
+ t = t->left;
+ } else {
+ nodeT *newRoot = t->left;
+ nodeT *parent = t;
+ while (newRoot->right != NULL) {
+ parent = newRoot;
+ newRoot = newRoot->right;
+ }
+ if (parent != t) {
+ parent->right = newRoot->left;
+ newRoot->left = t->left;
+ }
+ newRoot->right = t->right;
+ t = newRoot;
+ }
+ delete toDelete;
+}
+
+///
+bool recRemoveNode(nodeT *& t, string data) {
+ if (t == NULL) return false;
+ int sign = cmpFn(data, t->key);
+ if (sign == 0) {
+ removeTargetNode(t);
+ return true;
+ } else if (sign < 0) {
+ return recRemoveNode(t->left, data);
+ } else {
+ return recRemoveNode(t->right, data);
+ }
+}
+
 void DisplayTree(nodeT *t) {
 	 if (t != NULL) {
 	 DisplayTree(t->left);
@@ -64,6 +111,7 @@ int main(int argc, char const *argv[])
 	DisplayTree(dwarfTree);
 	cout << "\n****derp*****\n";
 	PreOrderWalk(dwarfTree);
+
 	return 0;
 
 };
