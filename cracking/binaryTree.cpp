@@ -1,3 +1,4 @@
+//http://cs.stanford.edu/people/eroberts/courses/cs106b/chapters/13-trees.pdf
 #include <iostream>
 
 using namespace std;
@@ -7,6 +8,8 @@ struct nodeT {
     struct nodeT* left;
     struct nodeT* right;
 };
+
+/* implement your comparison condition here somewhere*/
 void InsertNode(nodeT * & t, string key) {
 	 if (t == NULL) {
 	 t = new nodeT;
@@ -36,6 +39,7 @@ void PreOrderWalk(nodeT *t) {
  PreOrderWalk(t->left);
  PreOrderWalk(t->right);
  }
+}
 
 void PostOrderWalk(nodeT *t) {
  if (t != NULL) {
@@ -58,7 +62,8 @@ int main(int argc, char const *argv[])
 	InsertNode(dwarfTree,"Bashful");
 	InsertNode(dwarfTree,"Sneezy");
 	DisplayTree(dwarfTree);
-
+	cout << "\n****derp*****\n";
+	PreOrderWalk(dwarfTree);
 	return 0;
 
 };
