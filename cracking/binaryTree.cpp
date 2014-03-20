@@ -1,46 +1,43 @@
 #include <iostream>
 
-struct Node{
-int Key = -1;
-Node* Parent = NULL;
-Node* Left = NULL;
-Node* Right = NULL;
-};
-
 using namespace std;
 
-void addNode(int key, Node* root){
-    // No elements. Add the root
-    if ( root == NULL ) {
-        cout << "add root node ... " << key << endl;
-        Node* n = new Node();
-        n->Key=key;
-    root = n;
-    }
-    else {
-    cout << "add other node ... " << key << endl;
-    addNode(key, root);
+struct nodeT {
+    string key;
+    struct nodeT* left;
+    struct nodeT* right;
+};
+void InsertNode(nodeT * & t, string key) {
+	 if (t == NULL) {
+	 t = new nodeT;
+	 t->key = key;
+	 t->left = t->right = NULL;
+	 return;
+	 }
+	 if (key == t->key) return;
 
-	}
+		 if (key < t->key) {
+		 InsertNode(t->left, key);
+		 }
+		 else {
+		 InsertNode(t->right, key);
+		 }
 }
-// Print the tree
-void walk(Node* node)
-{
-    if ( node )
-    {
-        std::cout << node->Key << " ";
-        walk(node->Left);
-        walk(node->Right);
-    }
+void DisplayTree(nodeT *t) {
+ if (t != NULL) {
+ DisplayTree(t->left);
+ cout << t->key << endl;
+ DisplayTree(t->right);
+ }
 }
+
 int main(int argc, char const *argv[])
 {
 	/* code */
-	Node* root;
-	addNode(3,root.Left);
-	addNode(4,root.Left);
-	walk(root);
-
+	nodeT *dwarfTree = NULL;
+	InsertNode(dwarfTree, "Grumpy");
+	InsertNode(dwarfTree, "Sleepy");
+	DisplayTree(dwarfTree);
 	return 0;
 
 };
