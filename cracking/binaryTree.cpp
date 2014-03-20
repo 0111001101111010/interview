@@ -24,13 +24,26 @@ void InsertNode(nodeT * & t, string key) {
 		 }
 }
 void DisplayTree(nodeT *t) {
+	 if (t != NULL) {
+	 DisplayTree(t->left);
+	 cout << t->key << endl;
+	 DisplayTree(t->right);
+	 }
+}
+void PreOrderWalk(nodeT *t) {
  if (t != NULL) {
- DisplayTree(t->left);
  cout << t->key << endl;
- DisplayTree(t->right);
+ PreOrderWalk(t->left);
+ PreOrderWalk(t->right);
+ }
+
+void PostOrderWalk(nodeT *t) {
+ if (t != NULL) {
+ PostOrderWalk(t->left);
+ PostOrderWalk(t->right);
+ cout << t->key << endl;
  }
 }
-
 int main(int argc, char const *argv[])
 {
 	/* code */
@@ -38,6 +51,14 @@ int main(int argc, char const *argv[])
 	InsertNode(dwarfTree, "Grumpy");
 	InsertNode(dwarfTree, "Sleepy");
 	DisplayTree(dwarfTree);
+	cout << "\n****derp*****\n";
+	InsertNode(dwarfTree,"Dopey");
+	InsertNode(dwarfTree,"Doc");
+	InsertNode(dwarfTree,"Happy");
+	InsertNode(dwarfTree,"Bashful");
+	InsertNode(dwarfTree,"Sneezy");
+	DisplayTree(dwarfTree);
+
 	return 0;
 
 };
