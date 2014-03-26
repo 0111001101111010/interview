@@ -11,6 +11,7 @@ public class App
 {
     public static void main( String[] args )
     {
+     String result ="";
 	    try {
 			JSONObject jsonObj = new JSONObject(words);
 		//	  Log.d("@@@@",jsonObj.toString());
